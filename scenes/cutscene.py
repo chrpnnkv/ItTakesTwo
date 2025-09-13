@@ -30,7 +30,6 @@ class CutsceneScene(BaseScene):
             self.idx += 1
             self.alpha = 0
             if self.idx >= len(self.data):
-                self.state.save()
                 next_cls = _resolve_scene(self.next_scene_key)
                 self.mgr.switch(next_cls, state=self.state)
 
