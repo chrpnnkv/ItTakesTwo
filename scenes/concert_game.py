@@ -19,7 +19,7 @@ class ConcertGame(BaseScene):
         self.bully_change_dir_max = 5.0
         self.bully_aggro_radius = 400
         self.bully_radius = 14
-        self.damage_per_sec = 30
+        self.damage_per_sec = 60
 
         self.max_drinks = 8
         self.drink_radius = 8
@@ -124,4 +124,4 @@ class ConcertGame(BaseScene):
         pg.draw.rect(self.screen, (120, 220, 120), (30, 20, w, 16))
         tip = pg.font.SysFont(None, 22).render("WASD — движение, избегай верзил, подбирай напитки", True,
                                                (210, 210, 210))
-        self.screen.blit(tip, (30, 44))
+        self.screen.blit(tip, (30, 500))
