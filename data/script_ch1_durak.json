@@ -1,0 +1,8 @@
+{
+  "slides": [
+    {"bg": "ch1_apartments.png", "text": "Это было громкое заявление…", "fx": "fade"},
+    {"bg": "ch1_apartments.png", "text": "— Я непобедим!", "fx": "fade"},
+    {"bg": "ch1_apartments.png", "text": "Мы хохотали все вместе.", "fx": "fade"}
+  ],
+  "next": "balance"
+}

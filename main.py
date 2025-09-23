@@ -7,6 +7,10 @@ FPS = 60
 
 def main():
     pg.init()
+    try:
+        pg.mixer.init(frequency=44100, size=-16, channels=2, buffer=512)
+    except Exception:
+        print("Audio init failed — continuing without sound")
     screen = pg.display.set_mode((WIDTH, HEIGHT))
     clock = pg.time.Clock()
     manager = SceneManager(screen, start_scene=MenuScene)

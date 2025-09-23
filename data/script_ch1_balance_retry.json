@@ -1,0 +1,6 @@
+{
+  "slides": [
+    {"bg": "ch1_apartments.png", "text": "Не устояло… Ещё раз, аккуратнее.", "fx": "fade"}
+  ],
+  "next": "balance"
+}

@@ -1,3 +1,5 @@
+from core.ui import TOASTS
+
 class SceneManager:
     def __init__(self, screen, start_scene):
         self.screen = screen
@@ -11,6 +13,8 @@ class SceneManager:
 
     def update(self, dt):
         self.scene.update(dt)
+        TOASTS.update(dt)
 
     def draw(self):
         self.scene.draw()
+        TOASTS.draw(self.screen)

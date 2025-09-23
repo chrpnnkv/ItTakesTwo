@@ -1,4 +1,5 @@
 [
   {"key":"da_ya_zhestkii","title":"Да я жёсткий"},
+  {"key": "skulptura", "title": "Скульптура из мусора", "icon": "trophy.png", "sfx": "achieve.wav"},
   {"key":"stertye_nogi","title":"Стертые ноги"}
 ]

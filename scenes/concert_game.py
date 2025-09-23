@@ -106,10 +106,13 @@ class ConcertGame(BaseScene):
             self.mgr.switch(ConcertGame, state=self.state)
         if self.exit_rect.collidepoint(self.player.x, self.player.y):
             self.state.award("da_ya_zhestkii")
+            from core.ui import TOASTS
+            TOASTS.push("Ачивка: Да я жёсткий", icon_name="trophy.png", ttl=2.8)
             self.state.save()
             from scenes.cutscene import CutsceneScene
             self.mgr.switch(CutsceneScene, state=self.state,
-                            script_file="script_ch2.json", next_scene="maze")
+                            script_file="script_ch1_durak.json", next_scene="balance")
+            return
 
     def draw(self):
         self.screen.fill((25, 15, 25))

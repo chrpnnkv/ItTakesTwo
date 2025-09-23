@@ -2,18 +2,18 @@ import pygame as pg
 from core.base_scene import BaseScene
 from core.resources import img, font, load_json
 
-
 def _resolve_scene(key):
     if key == "concert":
-        from scenes.concert_game import ConcertGame
-        return ConcertGame
+        from scenes.concert_game import ConcertGame; return ConcertGame
     if key == "maze":
-        from scenes.maze_game import MazeGame
-        return MazeGame
+        from scenes.maze_game import MazeGame; return MazeGame
+    if key == "balance":
+        from scenes.balance_game import BalanceGame; return BalanceGame
+    if key == "end1":
+        from scenes.menu import MenuScene; return MenuScene
     if key == "end":
-        from scenes.achievements_view import AchievementsView
-        return AchievementsView
-    raise KeyError(f"Unknown next_scene: {key}")
+        from scenes.achievements_view import AchievementsView; return AchievementsView
+    raise KeyError(key)
 
 
 class CutsceneScene(BaseScene):

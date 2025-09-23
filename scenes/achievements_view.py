@@ -26,7 +26,7 @@ class AchievementsView(BaseScene):
         y = 100
         for key, title in ACHI_LIST:
             opened = key in self.state.achievements
-            color = (230,230,230) if opened else (120,120,120)
+            color = (230,255,130) if opened else (120,120,120)
             pg.draw.circle(self.screen, color, (80, y+10), 8)
             font = pg.font.SysFont(None, 28)
             self.screen.blit(font.render(title, True, color), (100, y))

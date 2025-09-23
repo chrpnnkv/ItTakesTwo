@@ -62,6 +62,8 @@ class MazeGame(BaseScene):
 
         if (self.player - self.exit).length() < 14:
             self.state.award("stertye_nogi")
+            from core.ui import TOASTS
+            TOASTS.push("Ачивка: Стертые ноги", icon_name="trophy.png", ttl=2.8)
             self.state.save()
             self.mgr.switch(CutsceneScene, state=self.state,
                             script_file="script_ch3.json", next_scene="end")
@@ -77,3 +79,6 @@ class MazeGame(BaseScene):
                     pg.draw.rect(self.screen, (30, 70, 70), r)
         pg.draw.circle(self.screen, (230, 230, 255), self.player, 10)
         pg.draw.circle(self.screen, (120, 200, 160), self.exit, 10)
+        tip = pg.font.SysFont(None, 22).render("WASD — движение; проводи Варюшу до дома", True,
+                                               (210, 210, 210))
+        self.screen.blit(tip, (30, 500))
