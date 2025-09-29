@@ -2,6 +2,8 @@ import os, random
 import pygame as pg
 from core.base_scene import BaseScene
 from scenes.cutscene import CutsceneScene
+from core.anim import AnimatedSprite  # <-- добавили
+from core.ui import TOASTS            # для тоста при победе
 
 TILE = 32
 
@@ -17,19 +19,28 @@ class MazeGame(BaseScene):
         super().__init__(manager)
         self.state = state
 
+        # выбираем одну из карт случайно
         maze_files = [f for f in os.listdir("data/maze") if f.startswith("maze") and f.endswith(".txt")]
         chosen = random.choice(maze_files)
 
         self.grid = load_level(os.path.join("data/maze", chosen))
-        self.player = self.find('S')
+        spawn = self.find('S')
         self.exit = self.find('E')
         self.speed = 150.0
 
+        # игрок как анимированный спрайт
+        self.player = AnimatedSprite(base_dir="character", fps=10, scale=1.0)
+        # если в карте нет 'S', поставим в центр экрана как fallback
+        if spawn is None:
+            w, h = self.screen.get_size()
+            spawn = pg.Vector2(w//2, h//2)
+        self.player.pos.update(spawn.x, spawn.y)
+
     def find(self, ch):
-        for y,row in enumerate(self.grid):
+        for y, row in enumerate(self.grid):
             x = row.find(ch)
             if x != -1:
-                return pg.Vector2(x*TILE+TILE//2, y*TILE+TILE//2)
+                return pg.Vector2(x*TILE + TILE//2, y*TILE + TILE//2)
 
     def tile_at(self, x, y):
         gx, gy = int(x // TILE), int(y // TILE)
@@ -42,27 +53,49 @@ class MazeGame(BaseScene):
 
     def update(self, dt):
         keys = pg.key.get_pressed()
-        vx = (keys[pg.K_d] - keys[pg.K_a])
-        vy = (keys[pg.K_s] - keys[pg.K_w])
+        vx = (keys[pg.K_d] or keys[pg.K_RIGHT]) - (keys[pg.K_a] or keys[pg.K_LEFT])
+        vy = (keys[pg.K_s] or keys[pg.K_DOWN]) - (keys[pg.K_w] or keys[pg.K_UP])
 
-        tile_here = self.tile_at(self.player.x, self.player.y)
+        # направление анимации
+        moving = (vx != 0 or vy != 0)
+        dir_name = self.player.direction
+        if abs(vx) > abs(vy):
+            dir_name = "left" if vx < 0 else "right"
+        elif vy != 0:
+            dir_name = "forward" if vy > 0 else "back"
+        self.player.set_direction(dir_name)
+
+        # скорость с учётом замедляющих тайлов
+        tile_here = self.tile_at(self.player.pos.x, self.player.pos.y)
         slow = 0.65 if tile_here == '~' else 1.0
         speed = self.speed * slow
 
-        move = pg.Vector2(vx, vy)
+        # движение с поочерёдной проверкой коллизий по осям
+        move = pg.Vector2(float(vx), float(vy))
         if move.length_squared() > 0:
             move = move.normalize() * speed * dt
 
-        nx, ny = self.player.x + move.x, self.player.y
-        if self.passable(nx, self.player.y):
-            self.player.x = nx
-        nx, ny = self.player.x, self.player.y + move.y
-        if self.passable(self.player.x, ny):
-            self.player.y = ny
+            # X
+            old_x = self.player.pos.x
+            nx = self.player.pos.x + move.x
+            if self.passable(nx, self.player.pos.y):
+                self.player.pos.x = nx
+            else:
+                self.player.pos.x = old_x
+            # Y
+            old_y = self.player.pos.y
+            ny = self.player.pos.y + move.y
+            if self.passable(self.player.pos.x, ny):
+                self.player.pos.y = ny
+            else:
+                self.player.pos.y = old_y
 
-        if (self.player - self.exit).length() < 14:
+        # обновляем анимацию шага
+        self.player.update(dt, moving)
+
+        # достижение выхода
+        if self.exit and (self.player.pos - self.exit).length() < 14:
             self.state.award("stertye_nogi")
-            from core.ui import TOASTS
             TOASTS.push("Ачивка: Стертые ноги", icon_name="trophy.png", ttl=2.8)
             self.state.save()
             self.mgr.switch(CutsceneScene, state=self.state,
@@ -77,8 +110,12 @@ class MazeGame(BaseScene):
                     pg.draw.rect(self.screen, (40, 40, 60), r)
                 elif ch == '~':
                     pg.draw.rect(self.screen, (30, 70, 70), r)
-        pg.draw.circle(self.screen, (230, 230, 255), self.player, 10)
-        pg.draw.circle(self.screen, (120, 200, 160), self.exit, 10)
+
+        # выход и игрок-спрайт
+        if self.exit:
+            pg.draw.circle(self.screen, (120, 200, 160), (int(self.exit.x), int(self.exit.y)), 10)
+        self.player.draw(self.screen)
+
         tip = pg.font.SysFont(None, 22).render("WASD — движение; проводи Варюшу до дома", True,
                                                (210, 210, 210))
         self.screen.blit(tip, (30, 500))

@@ -1,0 +1,41 @@
+{
+  "slides": [
+    {
+      "type": "dialog",
+      "bg": "ch2_bday_watch.png",
+      "speaker": "Варя",
+      "portrait": "portraits/varya.png",
+      "text": "Драгоценный мой, с днем рождения! Будь счастлив.",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch2_bday_watch.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "Ууу... Варя, у тебя уже глаза в кучу, больше не пей..."
+    },
+    {
+      "type": "dialog",
+      "bg": "ch2_bday_watch.png",
+      "speaker": "Варя",
+      "portrait": "portraits/varya.png",
+      "text": "О, а что это за часы..?"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch2_bday_watch.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "Командирские!"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch2_bday_watch.png",
+      "speaker": "Максим",
+      "portrait": "portraits/maksim.png",
+      "text": "А почему она, а не я...",
+      "fx": "fade"
+    }
+  ]
+}

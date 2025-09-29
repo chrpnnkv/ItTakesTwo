@@ -1,0 +1,6 @@
+{
+  "slides": [
+    { "bg": "ch2_city_night.png", "text": "Оракул молчит... Попробуем ещё раз.", "fx": "fade" }
+  ],
+  "next": "oracle"
+}

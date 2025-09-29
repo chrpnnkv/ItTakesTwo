@@ -1,0 +1,10 @@
+{
+  "slides": [
+    {
+      "bg": "ch1_dancefloor.png",
+      "text": "Надо быть осторожнее!",
+      "fx": "fade"
+    }
+  ],
+  "next": "concert"
+}

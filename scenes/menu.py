@@ -67,6 +67,11 @@ class MenuScene(BaseScene):
             self.mgr.switch(CutsceneScene, state=self.state,
                             script_file="script_ch2.json", next_scene="maze")
             return
+        if "n" not in ach:
+            # после «Баланс» идём в лабиринт (вторая часть)
+            self.mgr.switch(CutsceneScene, state=self.state,
+                            script_file="script_ch2.json", next_scene="birthday")
+            return
 
         # всё пройдено — показываем ачивки / финал главы
         from scenes.achievements_view import AchievementsView

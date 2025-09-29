@@ -1,7 +1,0 @@
-{
-  "slides": [
-    {"bg": "ch1_night_train.png", "text": "Эта глава подошла к концу", "fx": "fade"},
-    {"bg": "ch1_night_train.png", "text": "Но это только начало истории...", "fx": "fade"}
-  ],
-  "next": "end1"
-}

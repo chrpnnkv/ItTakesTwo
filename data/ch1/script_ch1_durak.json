@@ -1,0 +1,27 @@
+{
+  "slides": [
+    {
+      "bg": "ch1_apartments.png",
+      "text": "Это было громкое заявление…",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch1_apartments.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "Я непобедим!",
+      "fx": "fade"
+    },
+    {
+      "bg": "ch1_apartments.png",
+      "fx": "fade"
+    },
+    {
+      "bg": "ch1_apartments.png",
+      "text": "Мы хохотали все вместе...",
+      "fx": "fade"
+    }
+  ],
+  "next": "balance"
+}

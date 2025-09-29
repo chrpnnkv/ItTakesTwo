@@ -1,0 +1,24 @@
+{
+  "slides": [
+    {
+      "bg": "ch2_school.png",
+      "text": "Но однажды все изменилось…",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch2_school.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "Мне по пути к репетитору, давай провожу?",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch2_school.png",
+      "speaker": "Варя",
+      "portrait": "portraits/varya.png",
+      "text": "Ну раз по пути...."
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "slides": [
+    {
+      "bg": "ch2_school.png",
+      "text": "Этим сообщениям не было конца…",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch2_school.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "Вот вообще в перспективе, как могут наши взаимоотношения складываться, если Яна и Максим расстанутся",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch2_school.png",
+      "speaker": "Варя",
+      "portrait": "portraits/varya.png",
+      "text": "Как будто совсем не радужно все складывается...."
+    },
+    {
+      "type": "dialog",
+      "bg": "ch2_school.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "Вот это меня тоже расстраивает очень сильно… я люблю потому что вас"
+    },
+    {
+      "bg": "ch2_troubles.png",
+      "text": "С каждым днем все дальше друг от друга……",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch2_troubles.png",
+      "speaker": "Варя",
+      "portrait": "portraits/varya.png",
+      "text": "У меня нет сил на это отвечать...",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch2_troubles.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "У тебя что-то случилось?"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch2_troubles.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "Что нового у тебя?",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch2_troubles.png",
+      "speaker": "Варя",
+      "portrait": "portraits/varya.png",
+      "text": "Все по-старому."
+    }
+  ]
+}

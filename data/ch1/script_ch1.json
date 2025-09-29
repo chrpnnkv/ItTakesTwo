@@ -1,0 +1,119 @@
+{
+  "slides": [
+    {
+      "bg": "ch1_train.png",
+      "text": "Это была обычная суббота…",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch1_train.png",
+      "speaker": "Настя Плешкова",
+      "portrait": "portraits/phone.png",
+      "text": "Привет! Какой план на завтра?",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch1_train.png",
+      "speaker": "Яна",
+      "portrait": "portraits/yana.png",
+      "text": "Как бы нам теперь её с хвоста сбросить...?"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch1_train.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "Просто на хату едем, а её сливаем"
+    },
+    {
+      "bg": "ch1_train.png",
+      "text": "Мы не всегда сходились во мнениях…",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch1_train.png",
+      "speaker": "Максим",
+      "portrait": "portraits/maksim.png",
+      "text": "А почему вы карты в уно берёте, пока колода не закончится?"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch1_train.png",
+      "speaker": "Варя",
+      "portrait": "portraits/varya1.png",
+      "text": "Да вы правил не знаете!"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch1_train.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "Да вы играть не умеете!"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch1_train.png",
+      "speaker": "Отец",
+      "portrait": "portraits/man.png",
+      "text": "Эй, редановцы! За пивом моим посмотрите...",
+      "fx": "fade"
+    },
+    {
+      "bg": "ch1_city.png",
+      "text": "Наконец мы прибыли в это...",
+      "fx": "fade"
+    },
+    {
+      "bg": "ch1_city.png",
+      "text": "...ублюдское место.",
+      "fx": "fade"
+    },
+    {
+      "bg": "ch1_apartments_day.png",
+      "text": "Но на этом трудности не закончились…",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch1_apartments_day.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "Сейчас на фоне Нью-Йорка сфоткаюсь и дело в шляпе"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch1_apartments_day.png",
+      "speaker": "Дина",
+      "portrait": "portraits/phone.png",
+      "text": "Я ВАС ЗАСЕЛЯТЬ НЕ БУДУ!!!"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch1_apartments_day.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "Кажется, придется Маше звонить...",
+      "fx": "fade"
+    },
+    {
+      "bg": "ch1_teleclub.png",
+      "text": "Вот мы и добрались до нашей цели…",
+      "fx": "fade"
+    },
+    {
+      "bg": "ch1_concert.png",
+      "text": "За пацанов пью стоя..."
+    },
+    {
+      "bg": "ch1_concert.png",
+      "text": "Да или нет, ты та или же..."
+    },
+    {
+      "bg": "ch1_concert.png",
+      "text": "...но всё ещё хочу к тебе..."
+    }
+  ]
+}
