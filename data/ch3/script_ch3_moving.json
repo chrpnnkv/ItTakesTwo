@@ -1,0 +1,37 @@
+{
+  "slides": [
+    {
+      "bg": "ch3_house.png",
+      "text": "У меня всегда была поддержка…",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch3_house.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "Ну что? Чемоданы запаковала?",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch3_house.png",
+      "speaker": "Варя",
+      "portrait": "portraits/varya1.png",
+      "text": "Я боюсь, у меня ничего не получится..."
+    },
+    {
+      "type": "dialog",
+      "bg": "ch3_house.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "Я не думаю, что ты так много старалась, чтобы потом просто побояться сделать шаг..."
+    },
+    {
+      "bg": "ch3_moscow.png",
+      "text": "Впереди большие перемены...",
+      "fx": "fade"
+    }
+  ],
+  "next": "ch4"
+}

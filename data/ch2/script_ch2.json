@@ -2,7 +2,7 @@
   "slides": [
     {
       "bg": "ch2_school.png",
-      "text": "Но однажды все изменилось…",
+      "text": "Однажды все изменилось…",
       "fx": "fade"
     },
     {
@@ -17,7 +17,7 @@
       "type": "dialog",
       "bg": "ch2_school.png",
       "speaker": "Варя",
-      "portrait": "portraits/varya.png",
+      "portrait": "portraits/varya1.png",
       "text": "Ну раз по пути...."
     }
   ]

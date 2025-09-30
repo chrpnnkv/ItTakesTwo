@@ -5,6 +5,7 @@ from core.state import GameState
 from scenes.cutscene import CutsceneScene
 from scenes.achievements_view import AchievementsView
 
+
 class MenuScene(BaseScene):
     def __init__(self, manager):
         super().__init__(manager)
@@ -14,7 +15,7 @@ class MenuScene(BaseScene):
         if self.check_achievements():
             self.buttons = [
                 Button((cx - 120, 180, 240, 48), "Начать", lambda: self.mgr.switch(
-                    CutsceneScene, state=self.state, script_file="script_ch1.json", next_scene="concert")),
+                    CutsceneScene, state=self.state, script_file="ch1/script_ch1.json", next_scene="concert")),
                 Button((cx - 120, 240, 240, 48), "Продолжить", self._resume),
                 Button((cx - 120, 300, 240, 48), "Ачивки", lambda: self.mgr.switch(AchievementsView, state=self.state)),
                 Button((cx - 120, 360, 240, 48), "Выход", lambda: pg.event.post(pg.event.Event(pg.QUIT)))
@@ -22,7 +23,7 @@ class MenuScene(BaseScene):
         else:
             self.buttons = [
                 Button((cx - 120, 180, 240, 48), "Начать", lambda: self.mgr.switch(
-                    CutsceneScene, state=self.state, script_file="script_ch1.json", next_scene="concert")),
+                    CutsceneScene, state=self.state, script_file="ch1/script_ch1.json", next_scene="concert")),
                 Button((cx - 120, 260, 240, 48), "Ачивки", lambda: self.mgr.switch(AchievementsView, state=self.state)),
                 Button((cx - 120, 340, 240, 48), "Выход", lambda: pg.event.post(pg.event.Event(pg.QUIT)))
             ]
@@ -45,7 +46,7 @@ class MenuScene(BaseScene):
         except Exception:
             # сейва нет/битый — начать с пролога → концерт
             self.mgr.switch(CutsceneScene, state=self.state,
-                            script_file="script_ch1.json", next_scene="concert")
+                            script_file="ch1/script_ch1.json", next_scene="concert")
             return
 
         ach = set(self.state.achievements)
@@ -53,24 +54,27 @@ class MenuScene(BaseScene):
         if "da_ya_zhestkii" not in ach:
             # ещё не пройден «Концерт»
             self.mgr.switch(CutsceneScene, state=self.state,
-                            script_file="script_ch1.json", next_scene="concert")
+                            script_file="ch1/script_ch1.json", next_scene="concert")
             return
 
         if "skulptura" not in ach:
             # концерт пройден, но «Баланс» ещё нет → кат-сцена «Дурак» → Balance
             self.mgr.switch(CutsceneScene, state=self.state,
-                            script_file="script_ch1_durak.json", next_scene="balance")
+                            script_file="ch1/script_ch1_durak.json", next_scene="balance")
             return
 
         if "stertye_nogi" not in ach:
             # после «Баланс» идём в лабиринт (вторая часть)
             self.mgr.switch(CutsceneScene, state=self.state,
-                            script_file="script_ch2.json", next_scene="maze")
+                            script_file="ch2/script_ch2.json", next_scene="maze")
             return
-        if "n" not in ach:
-            # после «Баланс» идём в лабиринт (вторая часть)
+        if "pryaniki" not in ach:
             self.mgr.switch(CutsceneScene, state=self.state,
-                            script_file="script_ch2.json", next_scene="birthday")
+                            script_file="ch2/script_ch2_messages.json", next_scene="oracle")
+            return
+        if "lyagyshka" not in ach:
+            self.mgr.switch(CutsceneScene, state=self.state,
+                            script_file="ch3/script_ch3.json", next_scene="rain")
             return
 
         # всё пройдено — показываем ачивки / финал главы

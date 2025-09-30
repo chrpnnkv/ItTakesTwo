@@ -218,16 +218,16 @@ class OracleGame(BaseScene):
         # ачивка и переход
         try:
             from core.ui import TOASTS
-            TOASTS.push("Ачивка: Оракул", icon_name="trophy.png", ttl=2.6)
+            TOASTS.push("Ачивка: Пряники", icon_name="trophy.png", ttl=2.6)
         except Exception:
             pass
-        self.state.award("orakul")
+        self.state.award("pryaniki")
         self.state.save()
 
         from scenes.cutscene import CutsceneScene
         # создаёшь data/script_ch2_oracle_end.json; далее по плану — например, «День рождения»
         self.mgr.switch(CutsceneScene, state=self.state,
-                        script_file="script_ch2_oracle_end.json", next_scene="maze")
+                        script_file="script_ch2_birthday.json", next_scene="maze")
 
     def _lose(self):
         from scenes.cutscene import CutsceneScene

@@ -136,7 +136,7 @@ class BalanceGame(BaseScene):
                     self.state.save()
                     from scenes.cutscene import CutsceneScene
                     self.mgr.switch(CutsceneScene, state=self.state,
-                                    script_file="script_ch1_end.json", next_scene="end1")
+                                    script_file="ch1/script_ch1_end.json", next_scene="end1")
                     return
 
                 # готовим следующий слот (новые случайные толщина и зазор) и активный блок

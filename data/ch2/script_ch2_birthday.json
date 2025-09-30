@@ -4,7 +4,7 @@
       "type": "dialog",
       "bg": "ch2_bday_watch.png",
       "speaker": "Варя",
-      "portrait": "portraits/varya.png",
+      "portrait": "portraits/varya1.png",
       "text": "Драгоценный мой, с днем рождения! Будь счастлив.",
       "fx": "fade"
     },
@@ -19,7 +19,7 @@
       "type": "dialog",
       "bg": "ch2_bday_watch.png",
       "speaker": "Варя",
-      "portrait": "portraits/varya.png",
+      "portrait": "portraits/varya1.png",
       "text": "О, а что это за часы..?"
     },
     {
@@ -37,5 +37,6 @@
       "text": "А почему она, а не я...",
       "fx": "fade"
     }
-  ]
+  ],
+  "next": "ch3"
 }

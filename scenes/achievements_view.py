@@ -4,7 +4,10 @@ from core.ui import Button
 
 ACHI_LIST = [
     ("da_ya_zhestkii", "Да я жёсткий"),
-    ("stertye_nogi", "Стертые ноги")
+    ("skulptura", "Скульптура из мусора"),
+    ("stertye_nogi", "Стертые ноги"),
+    ("pryaniki", "Пряники"),
+    ("lyagyshka", "Лягушонок")
 ]
 
 class AchievementsView(BaseScene):

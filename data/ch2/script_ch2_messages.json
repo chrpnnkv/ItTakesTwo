@@ -17,7 +17,7 @@
       "type": "dialog",
       "bg": "ch2_school.png",
       "speaker": "Варя",
-      "portrait": "portraits/varya.png",
+      "portrait": "portraits/varya1.png",
       "text": "Как будто совсем не радужно все складывается...."
     },
     {
@@ -35,17 +35,17 @@
     {
       "type": "dialog",
       "bg": "ch2_troubles.png",
-      "speaker": "Варя",
-      "portrait": "portraits/varya.png",
-      "text": "У меня нет сил на это отвечать...",
-      "fx": "fade"
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "У тебя что-то случилось?"
     },
     {
       "type": "dialog",
       "bg": "ch2_troubles.png",
-      "speaker": "Влад",
-      "portrait": "portraits/vlad.png",
-      "text": "У тебя что-то случилось?"
+      "speaker": "Варя",
+      "portrait": "portraits/varya1.png",
+      "text": "У меня нет сил на это отвечать...",
+      "fx": "fade"
     },
     {
       "type": "dialog",
@@ -59,7 +59,7 @@
       "type": "dialog",
       "bg": "ch2_troubles.png",
       "speaker": "Варя",
-      "portrait": "portraits/varya.png",
+      "portrait": "portraits/varya1.png",
       "text": "Все по-старому."
     }
   ]

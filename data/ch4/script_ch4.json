@@ -1,0 +1,41 @@
+{
+  "slides": [
+    {
+      "bg": "ch4_moscow_kiss.png",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch4_moscow_kiss.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad2.png",
+      "text": "Давай в камень-ножницы-бумага?"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch4_moscow_kiss.png",
+      "speaker": "Варя",
+      "portrait": "portraits/varya2.png",
+      "text": "На что?"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch4_moscow_kiss.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad2.png",
+      "text": "..."
+    },
+    {
+      "type": "dialog",
+      "bg": "ch4_moscow_kiss.png",
+      "speaker": "Варя",
+      "portrait": "portraits/varya2.png",
+      "text": "И что ты на щеку показываешь? В челюсть тебе пробить?)"
+    },
+    {
+      "bg": "ch4_moscow_kiss.png",
+      "text": "Первый поцелуй в новом городе...",
+      "fx": "fade"
+    }
+  ]
+}

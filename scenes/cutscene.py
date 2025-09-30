@@ -5,27 +5,13 @@ from core.resources import img, font, load_json
 
 
 def _resolve_scene(key):
-    if key == "concert":
-        from scenes.concert_game import ConcertGame;
-        return ConcertGame
-    if key == "maze":
-        from scenes.maze_game import MazeGame;
-        return MazeGame
-    if key == "balance":
-        from scenes.balance_game import BalanceGame;
-        return BalanceGame
-    if key == "oracle":
-        from scenes.oracle_game import OracleGame;
-        return OracleGame
-    if key == "birthday":
-        from scenes.birthday_game import BirthdayGame;
-        return BirthdayGame
-    if key == "end1":
-        from scenes.menu import MenuScene;
-        return MenuScene
-    if key == "end":
-        from scenes.achievements_view import AchievementsView;
-        return AchievementsView
+    if key == "concert": from scenes.concert_game import ConcertGame; return ConcertGame
+    if key == "balance": from scenes.balance_game import BalanceGame; return BalanceGame
+    if key == "maze":    from scenes.maze_game import MazeGame; return MazeGame
+    if key == "oracle":  from scenes.oracle_game import OracleGame; return OracleGame
+    if key == "birthday": from scenes.birthday_game import BirthdayGame; return BirthdayGame
+    if key == "rain":    from scenes.rain_game import RainGame; return RainGame
+    if key == "end":     from scenes.achievements_view import AchievementsView; return AchievementsView
     raise KeyError(key)
 
 
@@ -74,6 +60,30 @@ class CutsceneScene(BaseScene):
             self.idx += 1
             self.alpha = 0
             if self.idx >= len(self.slides):
+                if self.next_scene_key == "ch2":
+                    self.mgr.switch(
+                        CutsceneScene,
+                        state=self.state,
+                        script_file="script_ch2.json",  # если лежит в data/ch2, см. ниже
+                        next_scene="maze"  # дальше по твоему порядку
+                    )
+                    return
+                if self.next_scene_key == "ch3":
+                    self.mgr.switch(
+                        CutsceneScene,
+                        state=self.state,
+                        script_file="script_ch3.json",  # если лежит в data/ch2, см. ниже
+                        next_scene="rain"  # дальше по твоему порядку
+                    )
+                    return
+                if self.next_scene_key == "ch4":
+                    self.mgr.switch(
+                        CutsceneScene,
+                        state=self.state,
+                        script_file="script_ch4.json",  # если лежит в data/ch2, см. ниже
+                        next_scene="coat"  # дальше по твоему порядку
+                    )
+                    return
                 next_cls = _resolve_scene(self.next_scene_key)
                 self.mgr.switch(next_cls, state=self.state)
 

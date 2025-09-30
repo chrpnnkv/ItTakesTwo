@@ -99,7 +99,7 @@ class MazeGame(BaseScene):
             TOASTS.push("Ачивка: Стертые ноги", icon_name="trophy.png", ttl=2.8)
             self.state.save()
             self.mgr.switch(CutsceneScene, state=self.state,
-                            script_file="script_ch3.json", next_scene="end")
+                            script_file="ch2/script_ch2_messages.json", next_scene="oracle")
 
     def draw(self):
         self.screen.fill((10, 10, 14))

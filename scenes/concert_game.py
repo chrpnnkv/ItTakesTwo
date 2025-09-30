@@ -140,7 +140,7 @@ class ConcertGame(BaseScene):
         if self.hp <= 0:
             from scenes.cutscene import CutsceneScene
             self.mgr.switch(CutsceneScene, state=self.state,
-                            script_file="script_ch1_retry.json", next_scene="concert")
+                            script_file="ch1/script_ch1_retry.json", next_scene="concert")
             return
 
         # победа — дошли до выхода
@@ -151,7 +151,7 @@ class ConcertGame(BaseScene):
             self.state.save()
             from scenes.cutscene import CutsceneScene
             self.mgr.switch(CutsceneScene, state=self.state,
-                            script_file="script_ch1_durak.json", next_scene="balance")
+                            script_file="ch1/script_ch1_durak.json", next_scene="balance")
             return
 
     def draw(self):

@@ -1,0 +1,44 @@
+{
+  "slides": [
+    {
+      "bg": "ch3_house.png",
+      "text": "Вопреки всему оставались рядом…",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch3_house.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "197! Я за тебя больше, чем за себя рад",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch3_house.png",
+      "speaker": "Варя",
+      "portrait": "portraits/varya1.png",
+      "text": "Спасибо! Но гулять я с тобой все равно не пойду..."
+    },
+    {
+      "type": "dialog",
+      "bg": "ch3_house.png",
+      "speaker": "Влад",
+      "portrait": "portraits/vlad.png",
+      "text": "Тогда на лавке будем весь день сидеть."
+    },
+    {
+      "bg": "ch3_bench.png",
+      "fx": "fade"
+    },
+    {
+      "type": "dialog",
+      "bg": "ch3_house.png",
+      "speaker": "Варя",
+      "portrait": "portraits/varya1.png",
+      "text": "Будешь вечером в городе?...",
+      "fx": "fade"
+    }
+  ],
+  "next": "rain"
+}

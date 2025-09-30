@@ -1,6 +1,33 @@
 [
-  {"key":"da_ya_zhestkii","title":"Да я жёсткий"},
-  {"key": "skulptura", "title": "Скульптура из мусора", "icon": "trophy.png", "sfx": "achieve.wav"},
-  {"key":"stertye_nogi","title":"Стертые ноги"},
-  {"key":"n","title":"Стертые ноги"}
+  {
+    "key": "da_ya_zhestkii",
+    "title": "Да я жёсткий",
+    "icon": "trophy.png",
+    "sfx": "achieve.wav"
+  },
+  {
+    "key": "skulptura",
+    "title": "Скульптура из мусора",
+    "icon": "trophy.png",
+    "sfx": "achieve.wav"
+  },
+  {
+    "key": "stertye_nogi",
+    "title": "Стертые ноги",
+    "icon": "trophy.png",
+    "sfx": "achieve.wav"
+  },
+  {
+    "key": "pryaniki",
+    "title": "Пряники",
+    "icon": "trophy.png",
+    "sfx": "achieve.wav"
+  },
+  {
+    "key": "lyagyshka",
+    "title": "Лягушонок",
+    "icon": "trophy.png",
+    "sfx": "achieve.wav"
+  }
+
 ]
