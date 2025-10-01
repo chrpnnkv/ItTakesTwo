@@ -72,9 +72,13 @@ class MenuScene(BaseScene):
             self.mgr.switch(CutsceneScene, state=self.state,
                             script_file="ch2/script_ch2_messages.json", next_scene="oracle")
             return
-        if "lyagyshka" not in ach:
+        if "lyagushka" not in ach:
             self.mgr.switch(CutsceneScene, state=self.state,
                             script_file="ch3/script_ch3.json", next_scene="rain")
+            return
+        if "puhovik" not in ach:
+            self.mgr.switch(CutsceneScene, state=self.state,
+                            script_file="ch4/script_ch4.json", next_scene="puhovik")
             return
 
         # всё пройдено — показываем ачивки / финал главы

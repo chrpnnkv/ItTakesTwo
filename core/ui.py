@@ -1,5 +1,149 @@
 import pygame as pg
+import math
 from .resources import font, img, sfx
+from dataclasses import dataclass
+from typing import List, Tuple, Optional
+
+@dataclass
+class _IntroLine:
+    text: str
+    size: int
+    color: Tuple[int,int,int]
+    t0: float      # момент старта появления (сек от начала заставки)
+    alpha: float = 0.0
+    yofs: float = 20.0
+    scale: float = 1.06
+
+class MiniIntro:
+    """
+    Заставка для мини-игры с анимированным текстом.
+    """
+
+    def __init__(self,
+                 lines: List[Tuple[str, int, Tuple[int,int,int]]],
+                 bg_color: Tuple[int,int,int] | None = None,
+                 auto_start_after: Optional[float] = None,
+                 hint_text: str = "Нажми любую клавишу",
+                 fade_in: float = 0.35,
+                 line_gap: int = 16,
+                 start_delay_step: float = 0.18,
+                 bg_image: str | None = None):
+        self.lines_raw = lines
+        self.bg_color = bg_color
+        self.auto_start_after = auto_start_after
+        self.hint_text = hint_text
+        self.fade_in = fade_in
+        self.line_gap = line_gap
+        self.start_delay_step = start_delay_step
+        self.bg_image = None
+        if bg_image:
+            try:
+                self.bg_image = pg.image.load(f"assets/img/{bg_image}").convert()
+            except Exception:
+                self.bg_image = None
+
+        self.time = 0.0
+        self.hide = False
+        self.done = False
+        self.hide_time = 0.0
+        self.hide_dur = 0.30
+
+        # подготовка строк
+        self.font_cache: dict[int, pg.font.Font] = {}
+        t0 = 0.0
+        self.lines: List[_IntroLine] = []
+        for text, size, color in self.lines_raw:
+            self.lines.append(_IntroLine(text, size, color, t0))
+            t0 += self.start_delay_step
+
+        self.hint_alpha = 0.0
+
+    def _font(self, size: int):
+        if size not in self.font_cache:
+            self.font_cache[size] = pg.font.Font("assets/fonts/better-vcr-5.2.ttf", size)
+        return self.font_cache[size]
+
+    def handle_event(self, e: pg.event.Event):
+        if self.done:
+            return
+        if e.type in (pg.KEYDOWN, pg.MOUSEBUTTONDOWN):
+            self.hide = True
+
+    def update(self, dt: float):
+        if self.done:
+            return
+        self.time += dt
+        if self.auto_start_after is not None and not self.hide:
+            if self.time >= self.auto_start_after:
+                self.hide = True
+        for L in self.lines:
+            t_rel = max(0.0, self.time - L.t0)
+            k = min(1.0, t_rel / max(0.001, self.fade_in))
+            L.alpha = 255.0 * k
+            L.yofs = 20.0 * (1.0 - k)
+            L.scale = 1.06 - 0.06 * k
+        self.hint_alpha = 200 + int(55 * (0.5 + 0.5 * math.sin(pg.time.get_ticks() * 0.006)))
+        if self.hide:
+            self.hide_time += dt
+            if self.hide_time >= self.hide_dur:
+                self.done = True
+
+    def draw(self, screen: pg.Surface):
+        if self.done:
+            return
+        # В draw() — перед затемнением и текстом:
+        W, H = screen.get_size()
+
+        # 1) Фон-картинка (если есть) — подгоняем по размеру экрана:
+        if self.bg_image:
+            bg = pg.transform.smoothscale(self.bg_image, (W, H))
+            screen.blit(bg, (0, 0))
+        elif self.bg_color:
+            # fallback: однотонный фон
+            screen.fill(self.bg_color)
+
+        overlay = pg.Surface((W, H), pg.SRCALPHA)
+        overlay.fill((0, 0, 0, 40))
+        screen.blit(overlay, (0, 0))
+
+        total_h = 0
+        for L in self.lines:
+            f = self._font(L.size)
+            rect = f.render(L.text, True, L.color).get_rect()
+            total_h += rect.height
+        total_h += self.line_gap * (len(self.lines) - 1)
+
+        y = H // 2 - total_h // 2
+        for L in self.lines:
+            f = self._font(L.size)
+            surf = f.render(L.text, True, L.color)
+            if abs(L.scale - 1.0) > 0.001:
+                sw = max(1, int(surf.get_width() * L.scale))
+                sh = max(1, int(surf.get_height() * L.scale))
+                surf = pg.transform.smoothscale(surf, (sw, sh))
+            rect = surf.get_rect(centerx=W // 2)
+            rect.top = int(y + L.yofs)
+            if L.alpha < 255:
+                s2 = surf.convert_alpha()
+                s2.fill((255, 255, 255, int(L.alpha)), special_flags=pg.BLEND_RGBA_MULT)
+                screen.blit(s2, rect.topleft)
+            else:
+                screen.blit(surf, rect.topleft)
+            y = rect.bottom + self.line_gap
+
+        hint_font = self._font(20)
+        hint = hint_font.render(self.hint_text, True, (230, 230, 230))
+        hint_rect = hint.get_rect(center=(W // 2, H - 60))
+        hint_s = hint.convert_alpha()
+        hint_s.fill((255, 255, 255, int(self.hint_alpha)), special_flags=pg.BLEND_RGBA_MULT)
+        screen.blit(hint_s, hint_rect)
+
+        if self.hide:
+            k = min(1.0, self.hide_time / self.hide_dur)
+            fade = pg.Surface((W, H), pg.SRCALPHA)
+            fade.fill((0, 0, 0, int(255 * k)))
+            screen.blit(fade, (0, 0))
+
 
 class Button:
     def __init__(self, rect, text, on_click):

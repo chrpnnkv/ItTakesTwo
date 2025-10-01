@@ -5,14 +5,14 @@ import os
 _ASSET_CACHE = {"img":{}, "font":{}, "sfx":{}, "music":{}}
 def img(name):
     # If name contains a path delimiter, use it directly
-    for subdir in ['', 'ch1/', 'ch2/', 'ch3/']:
+    for subdir in ['', 'ch1/', 'ch2/', 'ch3/', 'ch4/']:
         path = os.path.join('assets', 'img', subdir + name)
         if os.path.exists(path):
             return pg.image.load(path).convert_alpha()
     raise FileNotFoundError(f"Image not found: {name}")
 
 def load_json(filename):
-    for subdir in ['', 'ch1/', 'ch2/', 'ch3/']:
+    for subdir in ['', 'ch1/', 'ch2/', 'ch3/', 'ch4/']:
         path = os.path.join('data', subdir + filename)
         if os.path.exists(path):
             with open(path, 'r', encoding='utf-8') as f:

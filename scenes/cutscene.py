@@ -9,6 +9,10 @@ def _resolve_scene(key):
     if key == "balance": from scenes.balance_game import BalanceGame; return BalanceGame
     if key == "maze":    from scenes.maze_game import MazeGame; return MazeGame
     if key == "oracle":  from scenes.oracle_game import OracleGame; return OracleGame
+    if key == "puhovik":
+        from scenes.puhovik_game import PuhovikGame;
+        return PuhovikGame
+
     if key == "birthday": from scenes.birthday_game import BirthdayGame; return BirthdayGame
     if key == "rain":    from scenes.rain_game import RainGame; return RainGame
     if key == "end":     from scenes.achievements_view import AchievementsView; return AchievementsView

@@ -3,6 +3,7 @@ import pygame as pg
 from core.anim import AnimatedSprite
 from core.resources import img
 from core.base_scene import BaseScene
+from core.ui import MiniIntro
 
 RND = random.Random()
 
@@ -54,6 +55,19 @@ class ConcertGame(BaseScene):
         # кулдаун для запрета «саморегенерации»
         self.regen_cooldown = 0.0
 
+        self.intro = MiniIntro(
+            [
+                ("МИНИ-ИГРА", 40, (235, 235, 240)),
+                ("Концерт", 32, (255, 230, 150)),
+                ("Цель: доберись до выхода, избегая толпы", 22, (220, 220, 230)),
+            ],
+            bg_color=(245, 185, 25),  # жёлтый фон как на скрине (опционально)
+            auto_start_after=None,  # можно поставить, например, 2.0
+            fade_in=0.6,  # было 0.35
+            start_delay_step=0.30,  # было 0.18
+            bg_image="ch1/ch1_dancefloor.png"
+        )
+
     # ---------------- utils ----------------
     def _random_dir(self) -> pg.Vector2:
         v = pg.Vector2(RND.uniform(-1, 1), RND.uniform(-1, 1))
@@ -68,10 +82,16 @@ class ConcertGame(BaseScene):
 
     # ---------------- events ----------------
     def handle_event(self, e):
-        pass  # управление читаем в update по pressed-keys
+        if self.intro and not self.intro.done:
+            self.intro.handle_event(e)
+            return
 
     # ---------------- loop ----------------
     def update(self, dt):
+        if self.intro and not self.intro.done:
+            self.intro.update(dt)
+            return
+
         keys = pg.key.get_pressed()
 
         # движение игрока
@@ -155,6 +175,10 @@ class ConcertGame(BaseScene):
             return
 
     def draw(self):
+        if self.intro and not self.intro.done:
+            self.intro.draw(self.screen)
+            return  # (если хочешь полностью перекрывать фон игры на время интро)
+
         # фон
         self.screen.blit(self.bg, (0, 0))
 

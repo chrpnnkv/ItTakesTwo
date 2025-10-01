@@ -28,6 +28,12 @@
     "title": "Лягушонок",
     "icon": "trophy.png",
     "sfx": "achieve.wav"
+  },
+  {
+    "key": "puhovik",
+    "title": "Зато шубка есть",
+    "icon": "trophy.png",
+    "sfx": "achieve.wav"
   }
 
 ]

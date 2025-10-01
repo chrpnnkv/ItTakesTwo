@@ -7,7 +7,8 @@ ACHI_LIST = [
     ("skulptura", "Скульптура из мусора"),
     ("stertye_nogi", "Стертые ноги"),
     ("pryaniki", "Пряники"),
-    ("lyagyshka", "Лягушонок")
+    ("lyagyshka", "Лягушонок"),
+    ("coat", "Зато шубка есть")
 ]
 
 class AchievementsView(BaseScene):
